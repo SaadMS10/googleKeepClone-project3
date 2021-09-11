@@ -1,0 +1,85 @@
+.note-card{
+    width: 620px !important;
+    /* border: 1px solid black; */
+    border-radius: 4px;
+    padding: 10px !important;
+    box-shadow: 0 3px 5px rgb(0, 0, 0, 0.2);
+
+}
+.note-card .ant-card-body{
+    padding: 0px;
+}
+
+.btn-actions{
+    background-color: #FFF;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-left: 5px;
+
+}
+.btn-actions:hover{
+    background-color: rgb(109, 107, 107);
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+
+}
+.color-icon-section{
+    position: relative;
+}
+.color-icon-section.active .color-section-overlay{
+    display: block;
+    cursor: unset;
+
+}
+.color-icon-section .color-section-overlay{
+    position: absolute;
+    top: -112px;
+    left: 0px;
+    height: 110px;
+    width: 190px;
+    border-radius: 10px;
+    background-color: rgb(216, 208, 208);
+    padding: 10px;
+    display: none;
+    z-index: 999;
+    
+ 
+}
+.color-icon-section .color-section-overlay  button{
+    background: none;
+    border: none;
+   
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-right: 7px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.color-icon-section .color-section-overlay  button:hover{
+    border: 1px solid #888;
+    background-color: #ddd;
+}
+.note-input{
+    width: 94%;
+ 
+    height: 40px;
+    border: none;
+
+    margin-bottom: 10px;
+
+
+}
+.note-input:focus{
+  outline:none;
+}
+.note-input:active{
+    outline: none;
+    
+}
