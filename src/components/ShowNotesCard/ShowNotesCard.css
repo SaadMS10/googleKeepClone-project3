@@ -1,23 +1,22 @@
-.shownotes{
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
-    width: 250px;
-    height: auto;
-    border: 1px solid transparent;
-    border-radius: 10px ;
-    
-    margin: 20px;
-    
-    min-height: 100px;
-  
+.shownotes {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  width: 235px;
+  height: auto;
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  margin: 20px;
+  display: flex;
+  min-height: 100px;
 }
-.modal{
-    width: 20px;
+.modal {
+  width: 20px;
 }
-.ant-card-bordered{
-    border: none !important;
+.ant-card-bordered {
+  border: none !important;
 }
 .ant-modal-body {
-    padding: 0;
+  padding: 0;
 }

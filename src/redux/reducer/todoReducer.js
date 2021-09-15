@@ -1,4 +1,9 @@
-import { ADD_NOTE_REQUEST, EDIT_NOTE_REQUEST } from "../action";
+import {
+  ADD_NOTE_REQUEST,
+  EDIT_NOTE_REQUEST,
+  DELETE_NOTE_REQUEST,
+  TRASH_NOTE_REQUEST,
+} from "../action";
 
 const initialState = {
   todoList: [],
@@ -22,21 +27,24 @@ export const todoReducer = (state = initialState, action) => {
         ...state,
         todoList: cloneTodoList,
       };
+    case TRASH_NOTE_REQUEST:
+      let TodoList = [...state.todoList];
+      TodoList[action.payload.index] = {
+        ...TodoList[action.payload.index],
+        isTrashed: action.payload.val,
+      };
+      return {
+        ...state,
+        todoList: TodoList,
+      };
+    case DELETE_NOTE_REQUEST:
+      let deletedstate = [...state.todoList];
+      deletedstate.splice(action.payload, 1);
 
-    // const todos = Object.values(state)[0]
-
-    //    return todos.map((todo,index)=>{
-    //         if(action.payload.id=== todo.id){
-    //             return{
-
-    //             ...todo,
-    //             title: action.payload.title,
-    //             desc: action.payload.desc
-    //             }
-    //         }
-
-    // })
-
+      return {
+        ...state,
+        todoList: deletedstate,
+      };
     default:
       return {
         ...state,
