@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { showAlert } from "../../utils";
 import { Card, Row } from "antd";
 import "./NotesCard.css";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { addTodo, editTodo, ThrashTodo, deleteTodo } from "../../redux/action";
 import {
   BgColorsOutlined,
@@ -17,8 +17,10 @@ import {
 } from "@ant-design/icons";
 import { v4 as uuidv4 } from "uuid";
 
+
 const NotesCard = (props) => {
   const { editstate, editindex, setIsModalVisible } = props;
+ 
 
   const [editNoteState, setEditNoteState] = useState([]);
   useEffect(() => {
@@ -42,7 +44,7 @@ const NotesCard = (props) => {
     const { name, value } = e.target;
     if (editstate) {
       setEditNoteState({
-        ...editstate,
+        ...editNoteState,
         [name]: value,
       });
     } else {
