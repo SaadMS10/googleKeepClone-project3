@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { showAlert } from "../../utils";
 import { Card, Row } from "antd";
 import "./NotesCard.css";
-import { useDispatch} from "react-redux";
-import { addTodo, editTodo, ThrashTodo, deleteTodo } from "../../redux/action";
+import { useDispatch } from "react-redux";
+import { addTodo, editTodo, ThrashTodo, deleteTodo,ArchiveTodo } from "../../redux/action";
 import {
   BgColorsOutlined,
   SaveOutlined,
@@ -17,10 +17,8 @@ import {
 } from "@ant-design/icons";
 import { v4 as uuidv4 } from "uuid";
 
-
 const NotesCard = (props) => {
   const { editstate, editindex, setIsModalVisible } = props;
- 
 
   const [editNoteState, setEditNoteState] = useState([]);
   useEffect(() => {
@@ -113,13 +111,16 @@ const NotesCard = (props) => {
     }
   };
   var archives;
+  let arch
   let archive = () => {
     if (editstate) {
       if (editNoteState.isArchieved) {
         archives = "UnArchive";
+        arch=false;
         return <CaretDownFilled />;
       } else {
         archives = "Archive";
+        arch=true;
         return <CaretUpOutlined />;
       }
     } else {
@@ -214,6 +215,7 @@ const NotesCard = (props) => {
                     ...editNoteState,
                     isArchieved: !editNoteState.isArchieved,
                   });
+                  dispatch(ArchiveTodo(editindex,arch))
                 } else {
                   setNoteState({
                     ...noteState,
@@ -333,7 +335,7 @@ const NotesCard = (props) => {
               onClick={() => {
                 dispatch(deleteTodo(editindex));
                 setIsModalVisible(false);
-                showAlert("Note Deleted ","success")
+                showAlert("Note Deleted ", "success");
               }}
               type="button"
               title="Delete Forever"
