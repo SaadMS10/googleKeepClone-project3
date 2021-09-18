@@ -23,7 +23,7 @@ const Search = (props) => {
 
   return (
     <div className="test">
-      {value.length && showingnotes.length ? (
+      {value?.length && showingnotes?.length ? (
         showingnotes.map((tod, index) => (
           <ShowNotesCard key={index} show={tod} ind={index} />
         ))

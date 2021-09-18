@@ -20,6 +20,7 @@ const { Header, Sider, Content } = Layout;
 
 const AppLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const [search,setSearch]=useState("")
   const location = useLocation();
   const { pathname } = location;
   const history = useHistory();
@@ -95,22 +96,29 @@ const AppLayout = () => {
               <Input
                 style={{ verticalAlign: "middle", marginLeft: "200px" }}
                 placeholder="Search By Title"
+                value={search}
                 onChange={(event) => {
                   onSearch(event.target.value);
+                  setSearch(event.target.value)
                 }}
               />
+              
             </Col>
 
             <Col span="4">
-              <button
+              {
+                search.length > 0 &&   <button
                 className="btn"
                 onClick={() => {
                   history.push("/");
+                  setSearch("")
                 }}
-                title="CLear"
+                title="Clear"
               >
                 <CloseOutlined />
               </button>
+              }
+            
             </Col>
           </Row>
         </Header>
